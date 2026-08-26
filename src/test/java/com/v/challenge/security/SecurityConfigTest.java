@@ -27,12 +27,12 @@ class SecurityConfigTest {
 
     @Test
     void webhookDeveSerAcessivelSemToken() throws Exception {
-        // POST to webhook endpoint — should not require auth
-        // Will return 404 because controller doesn't exist yet, but NOT 401
+        // POST to webhook endpoint — should not require auth.
+        // Endpoint is public and accepts an empty payload, returning 200 (not 401).
         mockMvc.perform(post("/api/v1/cobrancas/webhook/pix")
                 .contentType("application/json")
                 .content("{}"))
-            .andExpect(status().isNotFound());
+            .andExpect(status().isOk());
     }
 
     @Test
@@ -45,7 +45,7 @@ class SecurityConfigTest {
     void endpointProtegidoComTokenValidoDevePassar() throws Exception {
         String token = JwtTokenUtil.generateToken("user-123", "João", "Silva", "12345678900", 3600);
 
-        // Should pass authentication (returns 404 since no controller yet, not 401)
+        // Should pass authentication; returns 404 because no charge with id=1 exists (not 401)
         mockMvc.perform(get("/api/v1/cobrancas/1")
                 .header("Authorization", "Bearer " + token))
             .andExpect(status().isNotFound());

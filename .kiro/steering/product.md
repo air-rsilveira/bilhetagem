@@ -1,25 +1,24 @@
-# Product Summary
+# Product
 
-Bilhetagem is a billing/charging microservice for a ticketing system. It handles the creation, tracking, and lifecycle management of payment charges (cobranças) via PIX and credit card methods.
+**Bilhetagem** is a charge-management microservice ("Microserviço de Cobranças de Bilhetagem") for a ticketing/transit system. It handles the creation, tracking, and full lifecycle management of charges (`cobranças`).
 
-## Core Capabilities
+## Core capabilities
 
-- Create charges (PIX or credit card) with distributed locking per user
-- Track charge lifecycle through multiple statuses (SOLICITADA → FINALIZADA/EXPIRADA/etc.)
-- Receive PIX payment webhooks
-- Validate 3DS authentication for credit card payments
-- Query charge status with automatic external status reconciliation
-- Version charges for full audit trail (new row per status change, linked via `idCobrancaOrigem`)
-- Publish Kafka events on every status transition
+- Create charges paid via **PIX** or **credit card** (`CARTAO_CREDITO`).
+- Charge types: `RECARGA`, `RECARGA_TERCEIROS`, `ENVIO_CARTAO` (default `RECARGA`).
+- Full audit trail through **versioning**: every status change creates a new row in the same `cobranca` table, linked to the original via `idCobrancaOrigem`.
+- **Distributed lock per user** during charge creation (Redis `SET NX EX`, 5s TTL).
+- **Event publishing** to Kafka on every status transition.
+- PIX status is **reconciled automatically** with an external status query on read.
+- Credit-card flow supports **3DS checkout validation** (`/validate`).
+- PIX payments are confirmed via a **public webhook** (no auth).
 
-## Domain Concepts
+## Key domain rules
 
-- **Cobrança**: A charge/billing request initiated by a user
-- **Tipo**: RECARGA, RECARGA_TERCEIROS, ENVIO_CARTAO
-- **Método**: PIX, CARTAO_CREDITO
-- **Status lifecycle**: SOLICITADA(2) → AGUARDANDO_PAGAMENTO(3) → EM_PROCESSAMENTO(4) → FINALIZADA(5) / EXPIRADA(6) / CANCELADA(7) / ERRO_APROVACAO_PEDIDO(8) / EM_REPROCESSAMENTO(9) / ERRO_ANALISE_PENDENTE(10)
-- **Versionamento**: Each status change creates a new `Cobranca` row pointing to the original via `idCobrancaOrigem`
+- All timestamps use the `America/Sao_Paulo` timezone.
+- A charge in `FINALIZADA` status is terminal and is not re-processed by the webhook.
+- Auth is via **JWT Bearer** on all endpoints except the PIX webhook and Actuator.
 
-## Language
+## Important context
 
-The codebase, domain names, enums, error messages, and documentation are in Brazilian Portuguese. Maintain this convention.
+Several dependencies are **mocked for the challenge**: JWT uses a fixed hardcoded HMAC-SHA256 key, and the payment gateway, checkout (3DS) validation, and external status query are fake in-memory implementations with no real network calls. These are not production-ready.
