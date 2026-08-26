@@ -4,6 +4,8 @@
 
 ```
 bilhetagem/
+├── .mvn/wrapper/          # Maven Wrapper (maven-wrapper.jar + properties)
+├── mvnw / mvnw.cmd        # Maven Wrapper scripts (use these to build)
 ├── docker/                # docker-compose.yml + Dockerfile
 ├── docs/                  # tasks.md (technical refinement notes)
 ├── src/

@@ -10,7 +10,7 @@ Microserviço responsável pela criação, acompanhamento e gestão do ciclo de 
 - **Redis 7** — lock distribuído (padrão `SET NX EX`)
 - **Apache Kafka** (Confluent 7.5.0) — eventos de mudança de status
 - **Docker / Docker Compose** — infraestrutura local
-- **Maven** — build
+- **Maven Wrapper** (`./mvnw`) — build, sem necessidade de instalar o Maven
 - **Testes**: JUnit 5, H2, Testcontainers, jqwik (property-based testing), JaCoCo (cobertura)
 
 ## Como Executar
@@ -18,8 +18,9 @@ Microserviço responsável pela criação, acompanhamento e gestão do ciclo de 
 ### Pré-requisitos
 
 - Docker e Docker Compose
-- Java 17 (JDK)
-- Maven 3.9+
+- Java 17+ (JDK) com a variável `JAVA_HOME` configurada
+
+> O projeto inclui o **Maven Wrapper**. Use `./mvnw` (Linux/macOS) ou `mvnw.cmd` (Windows) — não é preciso instalar o Maven. Na primeira execução o wrapper baixa o Maven 3.9.16 automaticamente.
 
 ### 1. Subir a infraestrutura (PostgreSQL, Redis, Kafka)
 
@@ -30,7 +31,7 @@ docker-compose -f docker/docker-compose.yml up -d
 ### 2. Rodar a aplicação (profile default, conecta na infra local)
 
 ```bash
-mvn spring-boot:run
+./mvnw spring-boot:run
 ```
 
 A aplicação sobe na porta **8080**. Health check:
@@ -42,7 +43,7 @@ curl http://localhost:8080/actuator/health
 ### 3. Rodar os testes (com verificação de cobertura JaCoCo)
 
 ```bash
-mvn clean verify
+./mvnw clean verify
 ```
 
 O profile de teste usa **H2 em memória** e exclui Redis/Kafka, portanto os testes rodam **sem necessidade de Docker**.

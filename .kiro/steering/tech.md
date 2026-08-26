@@ -4,7 +4,7 @@
 
 - **Java 17**
 - **Spring Boot 3.2.0** (parent POM) — Web, Data JPA, Security, Validation, Actuator
-- **Maven** build (no wrapper committed; use a local `mvn` 3.9+)
+- **Maven Wrapper** committed (`mvnw` / `mvnw.cmd`, `.mvn/wrapper/`); pins **Maven 3.9.16**. Prefer `./mvnw` over a local `mvn`. Requires `JAVA_HOME` set to a JDK 17+.
 
 ## Libraries & Infrastructure
 
@@ -33,16 +33,16 @@
 docker-compose -f docker/docker-compose.yml up -d
 
 # Run the app (default profile, port 8080)
-mvn spring-boot:run
+./mvnw spring-boot:run
 
 # Health check
 curl http://localhost:8080/actuator/health
 
 # Run tests + coverage check
-mvn clean verify
+./mvnw clean verify
 
 # Build the jar (skip tests)
-mvn package -DskipTests
+./mvnw package -DskipTests
 
 # Build & run the full stack in Docker
 docker-compose -f docker/docker-compose.yml up --build
