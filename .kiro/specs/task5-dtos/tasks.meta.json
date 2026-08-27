@@ -1,0 +1,201 @@
+{
+  "pbtResults": {
+    "2.5 Escrever property test para ErrorResponse": {
+      "status": "passed",
+      "lastRunTimestamp": 1787769668825
+    }
+  },
+  "executionHistory": {
+    "1.1 Criar CobrancaRequestDTO com validação e métodos de valor default": [
+      {
+        "executionId": "b00f931f-0b7d-461b-8e86-eb6590d41ea2",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787769184240
+      },
+      {
+        "executionId": "b00f931f-0b7d-461b-8e86-eb6590d41ea2",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787769195699
+      },
+      {
+        "executionId": "b00f931f-0b7d-461b-8e86-eb6590d41ea2",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787769704740
+      }
+    ],
+    "1.2 Criar PixWebhookDTO e PixWebhookItemDTO": [
+      {
+        "executionId": "b00f931f-0b7d-461b-8e86-eb6590d41ea2",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787769184291
+      },
+      {
+        "executionId": "b00f931f-0b7d-461b-8e86-eb6590d41ea2",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787769195630
+      },
+      {
+        "executionId": "b00f931f-0b7d-461b-8e86-eb6590d41ea2",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787769704323
+      }
+    ],
+    "1.3 Criar CheckoutValidateRequestDTO": [
+      {
+        "executionId": "b00f931f-0b7d-461b-8e86-eb6590d41ea2",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787769184336
+      },
+      {
+        "executionId": "b00f931f-0b7d-461b-8e86-eb6590d41ea2",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787769195832
+      },
+      {
+        "executionId": "b00f931f-0b7d-461b-8e86-eb6590d41ea2",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787769704225
+      }
+    ],
+    "2.1 Criar CobrancaBasicoResponseDTO": [
+      {
+        "executionId": "b00f931f-0b7d-461b-8e86-eb6590d41ea2",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787769184385
+      },
+      {
+        "executionId": "b00f931f-0b7d-461b-8e86-eb6590d41ea2",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787769195743
+      },
+      {
+        "executionId": "b00f931f-0b7d-461b-8e86-eb6590d41ea2",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787769704659
+      }
+    ],
+    "2.2 Criar CobrancaCompletoResponseDTO": [
+      {
+        "executionId": "b00f931f-0b7d-461b-8e86-eb6590d41ea2",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787769184440
+      },
+      {
+        "executionId": "b00f931f-0b7d-461b-8e86-eb6590d41ea2",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787769195797
+      },
+      {
+        "executionId": "b00f931f-0b7d-461b-8e86-eb6590d41ea2",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787769704842
+      }
+    ],
+    "2.3 Criar ErrorResponse": [
+      {
+        "executionId": "b00f931f-0b7d-461b-8e86-eb6590d41ea2",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787769184497
+      },
+      {
+        "executionId": "b00f931f-0b7d-461b-8e86-eb6590d41ea2",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787769220494
+      },
+      {
+        "executionId": "b00f931f-0b7d-461b-8e86-eb6590d41ea2",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787769714357
+      }
+    ],
+    "3.1 Criar CobrancaEventDTO": [
+      {
+        "executionId": "b00f931f-0b7d-461b-8e86-eb6590d41ea2",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787769184545
+      },
+      {
+        "executionId": "b00f931f-0b7d-461b-8e86-eb6590d41ea2",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787769220439
+      },
+      {
+        "executionId": "b00f931f-0b7d-461b-8e86-eb6590d41ea2",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787769714763
+      }
+    ],
+    "4. Checkpoint - Verificar compilação dos DTOs": [
+      {
+        "executionId": "b00f931f-0b7d-461b-8e86-eb6590d41ea2",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787769184582
+      },
+      {
+        "executionId": "b00f931f-0b7d-461b-8e86-eb6590d41ea2",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787769722557
+      }
+    ],
+    "5.1 Criar CobrancaNaoEncontradaException": [
+      {
+        "executionId": "b00f931f-0b7d-461b-8e86-eb6590d41ea2",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787769184615
+      },
+      {
+        "executionId": "b00f931f-0b7d-461b-8e86-eb6590d41ea2",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787769220559
+      },
+      {
+        "executionId": "b00f931f-0b7d-461b-8e86-eb6590d41ea2",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787769714855
+      }
+    ],
+    "5.2 Criar GlobalExceptionHandler": [
+      {
+        "executionId": "b00f931f-0b7d-461b-8e86-eb6590d41ea2",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787769184650
+      },
+      {
+        "executionId": "b00f931f-0b7d-461b-8e86-eb6590d41ea2",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787769220628
+      },
+      {
+        "executionId": "b00f931f-0b7d-461b-8e86-eb6590d41ea2",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787769714546
+      }
+    ],
+    "6. Checkpoint final - Verificar compilação e testes": [
+      {
+        "executionId": "b00f931f-0b7d-461b-8e86-eb6590d41ea2",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787769184694
+      },
+      {
+        "executionId": "b00f931f-0b7d-461b-8e86-eb6590d41ea2",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787769722646
+      }
+    ],
+    "2. Criar Response DTOs e ErrorResponse": [
+      {
+        "executionId": "b00f931f-0b7d-461b-8e86-eb6590d41ea2",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787769714655
+      }
+    ],
+    "3. Criar Event DTO para Kafka": [
+      {
+        "executionId": "b00f931f-0b7d-461b-8e86-eb6590d41ea2",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787769715073
+      }
+    ]
+  }
+}

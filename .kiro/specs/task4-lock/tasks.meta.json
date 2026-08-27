@@ -1,0 +1,118 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Criar LockIndisponivelException": [
+      {
+        "executionId": "9540d53e-310f-4f8d-9e83-9bcc9ed50448",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787767822152
+      },
+      {
+        "executionId": "9540d53e-310f-4f8d-9e83-9bcc9ed50448",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787767830394
+      },
+      {
+        "executionId": "9540d53e-310f-4f8d-9e83-9bcc9ed50448",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787767913343
+      }
+    ],
+    "1.2 Criar interface LockService": [
+      {
+        "executionId": "9540d53e-310f-4f8d-9e83-9bcc9ed50448",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787767822205
+      },
+      {
+        "executionId": "9540d53e-310f-4f8d-9e83-9bcc9ed50448",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787767830460
+      },
+      {
+        "executionId": "9540d53e-310f-4f8d-9e83-9bcc9ed50448",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787767913402
+      }
+    ],
+    "2.1 Criar RedisLockService": [
+      {
+        "executionId": "9540d53e-310f-4f8d-9e83-9bcc9ed50448",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787767822252
+      },
+      {
+        "executionId": "9540d53e-310f-4f8d-9e83-9bcc9ed50448",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787767919540
+      }
+    ],
+    "3.1 Criar LockExecutor": [
+      {
+        "executionId": "9540d53e-310f-4f8d-9e83-9bcc9ed50448",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787767822341
+      },
+      {
+        "executionId": "9540d53e-310f-4f8d-9e83-9bcc9ed50448",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787767925359
+      }
+    ],
+    "3.2 Escrever LockExecutorTest (Teste obrigatório #7)": [
+      {
+        "executionId": "9540d53e-310f-4f8d-9e83-9bcc9ed50448",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787767822380
+      },
+      {
+        "executionId": "9540d53e-310f-4f8d-9e83-9bcc9ed50448",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787767942774
+      },
+      {
+        "executionId": "9540d53e-310f-4f8d-9e83-9bcc9ed50448",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787768041289
+      }
+    ],
+    "4. Checkpoint - Garantir que todos os testes passam": [
+      {
+        "executionId": "9540d53e-310f-4f8d-9e83-9bcc9ed50448",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787767822417
+      },
+      {
+        "executionId": "9540d53e-310f-4f8d-9e83-9bcc9ed50448",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787768047228
+      },
+      {
+        "executionId": "9540d53e-310f-4f8d-9e83-9bcc9ed50448",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787768207889
+      }
+    ],
+    "2. Implementar RedisLockService": [
+      {
+        "executionId": "9540d53e-310f-4f8d-9e83-9bcc9ed50448",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787767919580
+      }
+    ],
+    "3. Implementar LockExecutor": [
+      {
+        "executionId": "9540d53e-310f-4f8d-9e83-9bcc9ed50448",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787768041371
+      }
+    ],
+    "1. Criar exceção de negócio e interface do LockService": [
+      {
+        "executionId": "9540d53e-310f-4f8d-9e83-9bcc9ed50448",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787768226970
+      }
+    ]
+  }
+}

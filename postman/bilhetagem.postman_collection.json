@@ -1,0 +1,259 @@
+{
+  "info": {
+    "name": "Bilhetagem - Microserviço de Cobranças",
+    "description": "Collection com chamadas de exemplo para todos os endpoints do microserviço de cobranças de bilhetagem.\n\nAUTENTICAÇÃO: os endpoints protegidos usam a variável {{jwt}}. A collection já vem com um token JWT de TESTE pré-gerado (válido até 2035-01-01), assinado com a chave HMAC-SHA256 fixa do projeto e com as claims sub=user-123, given_name=Maria, family_name=Silva, cpf=12345678900. Como o JWT é mockado (chave fixa hardcoded, sem endpoint de login), esse token é fixo e pode ser reutilizado à vontade em ambiente de teste.\n\nPara usar outras claims, gere um novo token assinado com a mesma chave (ex.: jwt.io ou o JwtTokenUtil de teste do projeto) e substitua a variável `jwt`.\n\nATENÇÃO: este token serve apenas para desenvolvimento/teste. NÃO use em produção.\n\nO endpoint de webhook PIX é público e não precisa de token.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8080", "type": "string" },
+    { "key": "jwt", "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyLTEyMyIsImdpdmVuX25hbWUiOiJNYXJpYSIsImZhbWlseV9uYW1lIjoiU2lsdmEiLCJjcGYiOiIxMjM0NTY3ODkwMCIsImV4cCI6MjA1MTIyMjQwMH0.hSXEJwhSGYKmBcwFzCXw-1khqFw2MxlLSE5VAe-9Jp0", "type": "string" },
+    { "key": "cobrancaId", "value": "1", "type": "string" },
+    { "key": "transactionId", "value": "TXN-123", "type": "string" },
+    { "key": "txid", "value": "PIX-EXEMPLO-123", "type": "string" }
+  ],
+  "item": [
+    {
+      "name": "Criar cobrança (PIX)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{jwt}}" },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"valor\": 100.00,\n  \"tipo\": \"RECARGA\",\n  \"metodo\": \"PIX\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/cobrancas",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "cobrancas"]
+        },
+        "description": "Cria uma cobrança PIX. `valor` é obrigatório e positivo. `tipo` (default RECARGA) e `metodo` (default PIX) são opcionais.\n\nResposta 201 Created com dados básicos (id, txid, copiaECola, dataExpiracao, transactionId).\n\nO teste salva o `id` e o `txid` retornados nas variáveis da collection para reuso nas outras chamadas.\n\nRequer token JWT válido na variável {{jwt}}."
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('status 201', function () { pm.response.to.have.status(201); });",
+              "var body = pm.response.json();",
+              "if (body && body.id) { pm.collectionVariables.set('cobrancaId', body.id); }",
+              "if (body && body.txid) { pm.collectionVariables.set('txid', body.txid); }",
+              "if (body && body.transactionId) { pm.collectionVariables.set('transactionId', body.transactionId); }"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Criar cobrança (Cartão de crédito)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{jwt}}" },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"valor\": 250.50,\n  \"tipo\": \"ENVIO_CARTAO\",\n  \"metodo\": \"CARTAO_CREDITO\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/cobrancas",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "cobrancas"]
+        },
+        "description": "Cria uma cobrança via cartão de crédito. Salva o `transactionId` retornado para uso no endpoint de validação de checkout 3DS.\n\nRequer token JWT válido na variável {{jwt}}."
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('status 201', function () { pm.response.to.have.status(201); });",
+              "var body = pm.response.json();",
+              "if (body && body.transactionId) { pm.collectionVariables.set('transactionId', body.transactionId); }",
+              "if (body && body.id) { pm.collectionVariables.set('cobrancaId', body.id); }"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Consultar cobrança por id",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{jwt}}" }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/cobrancas/{{cobrancaId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "cobrancas", "{{cobrancaId}}"]
+        },
+        "description": "Consulta os dados completos de uma cobrança. Para cobranças PIX em status consultável, o status é reconciliado automaticamente com a consulta externa (gerando uma nova versão quando há mudança).\n\nUsa o `{{cobrancaId}}` salvo pela chamada de criação. Requer token JWT válido na variável {{jwt}}."
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('status 200', function () { pm.response.to.have.status(200); });"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Webhook PIX (público)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"pix\": [\n    {\n      \"txid\": \"{{txid}}\",\n      \"horario\": \"2024-01-01T10:00:00Z\",\n      \"valor\": 100.00\n    }\n  ]\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/cobrancas/webhook/pix",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "cobrancas", "webhook", "pix"]
+        },
+        "description": "Endpoint PÚBLICO (sem autenticação), consumido pelo provedor PIX. Cada item confirmado gera uma nova versão da cobrança com status FINALIZADA.\n\nUsa o `{{txid}}` salvo pela chamada de criação PIX. O formato de `horario` é `yyyy-MM-dd'T'HH:mm:ss'Z'`."
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('status 200', function () { pm.response.to.have.status(200); });"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Validar checkout 3DS (cartão)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{jwt}}" },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"cavv\": \"AAABBBCCC\",\n  \"xid\": \"XID-123\",\n  \"eci\": \"05\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/cobrancas/{{transactionId}}/validate",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "cobrancas", "{{transactionId}}", "validate"]
+        },
+        "description": "Valida o checkout 3DS de uma cobrança de cartão. `cavv`, `xid` e `eci` são obrigatórios (não podem ser vazios). A cobrança vai para FINALIZADA (aprovado) ou ERRO_APROVACAO_PEDIDO.\n\nUsa o `{{transactionId}}` salvo pela criação de cobrança de cartão. Requer token JWT válido na variável {{jwt}}."
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('status 200', function () { pm.response.to.have.status(200); });"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Erros (validação e autenticação)",
+      "description": "Cenários negativos cobrindo validação de request e autenticação JWT.",
+      "item": [
+        {
+          "name": "Criar cobrança - request inválido (400)",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{jwt}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"valor\": -10.00,\n  \"metodo\": \"PIX\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/cobrancas",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "cobrancas"]
+            },
+            "description": "`valor` negativo viola @Positive e deve retornar 400 Bad Request. Requer token JWT válido na variável {{jwt}}."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('status 400', function () { pm.response.to.have.status(400); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Consultar cobrança - sem token (401)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/cobrancas/{{cobrancaId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "cobrancas", "{{cobrancaId}}"]
+            },
+            "description": "Endpoint protegido sem header Authorization deve retornar 401."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('status 401', function () { pm.response.to.have.status(401); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Consultar cobrança - token inválido (401)",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer token-invalido.abc.123" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/cobrancas/{{cobrancaId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "cobrancas", "{{cobrancaId}}"]
+            },
+            "description": "Token malformado / assinatura inválida deve retornar 401."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('status 401', function () { pm.response.to.have.status(401); });"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

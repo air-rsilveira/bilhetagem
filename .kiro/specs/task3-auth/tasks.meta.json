@@ -1,0 +1,179 @@
+{
+  "pbtResults": {
+    "2.3 Escrever property tests para JwtAuthenticationFilter": {
+      "status": "passed",
+      "lastRunTimestamp": 1787766848161
+    }
+  },
+  "executionHistory": {
+    "1.1 Criar record UserContext e classe UserContextHolder": [
+      {
+        "executionId": "6ab106ad-45aa-4aec-9eca-3d3405432f53",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787766277647
+      },
+      {
+        "executionId": "6ab106ad-45aa-4aec-9eca-3d3405432f53",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787766289590
+      },
+      {
+        "executionId": "6ab106ad-45aa-4aec-9eca-3d3405432f53",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787766345869
+      }
+    ],
+    "2.1 Criar JwtAuthenticationFilter": [
+      {
+        "executionId": "6ab106ad-45aa-4aec-9eca-3d3405432f53",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787766277691
+      },
+      {
+        "executionId": "6ab106ad-45aa-4aec-9eca-3d3405432f53",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787766357607
+      },
+      {
+        "executionId": "6ab106ad-45aa-4aec-9eca-3d3405432f53",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787766440373
+      }
+    ],
+    "2.2 Criar JwtTokenUtil (utilitário de teste)": [
+      {
+        "executionId": "6ab106ad-45aa-4aec-9eca-3d3405432f53",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787766277733
+      },
+      {
+        "executionId": "6ab106ad-45aa-4aec-9eca-3d3405432f53",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787766458649
+      },
+      {
+        "executionId": "6ab106ad-45aa-4aec-9eca-3d3405432f53",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787766532441
+      }
+    ],
+    "3. Checkpoint - Verificar componentes de autenticação": [
+      {
+        "executionId": "6ab106ad-45aa-4aec-9eca-3d3405432f53",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787766277805
+      },
+      {
+        "executionId": "6ab106ad-45aa-4aec-9eca-3d3405432f53",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787767018509
+      },
+      {
+        "executionId": "6ab106ad-45aa-4aec-9eca-3d3405432f53",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787767095866
+      }
+    ],
+    "4.1 Atualizar SecurityConfig": [
+      {
+        "executionId": "6ab106ad-45aa-4aec-9eca-3d3405432f53",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787766277844
+      },
+      {
+        "executionId": "6ab106ad-45aa-4aec-9eca-3d3405432f53",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787766458612
+      },
+      {
+        "executionId": "6ab106ad-45aa-4aec-9eca-3d3405432f53",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787766532481
+      }
+    ],
+    "5. Checkpoint final - Garantir integração completa": [
+      {
+        "executionId": "6ab106ad-45aa-4aec-9eca-3d3405432f53",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787766277878
+      },
+      {
+        "executionId": "6ab106ad-45aa-4aec-9eca-3d3405432f53",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787767101133
+      }
+    ],
+    "1. Criar UserContext e UserContextHolder": [
+      {
+        "executionId": "6ab106ad-45aa-4aec-9eca-3d3405432f53",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787766345907
+      }
+    ],
+    "1.2 Escrever testes unitários para UserContext e UserContextHolder": [
+      {
+        "executionId": "6ab106ad-45aa-4aec-9eca-3d3405432f53",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787766539069
+      },
+      {
+        "executionId": "6ab106ad-45aa-4aec-9eca-3d3405432f53",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787766545328
+      },
+      {
+        "executionId": "6ab106ad-45aa-4aec-9eca-3d3405432f53",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787766626611
+      }
+    ],
+    "2.3 Escrever property tests para JwtAuthenticationFilter": [
+      {
+        "executionId": "6ab106ad-45aa-4aec-9eca-3d3405432f53",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787766633752
+      },
+      {
+        "executionId": "6ab106ad-45aa-4aec-9eca-3d3405432f53",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787766640219
+      },
+      {
+        "executionId": "6ab106ad-45aa-4aec-9eca-3d3405432f53",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787766871631
+      }
+    ],
+    "2. Implementar JwtAuthenticationFilter": [
+      {
+        "executionId": "6ab106ad-45aa-4aec-9eca-3d3405432f53",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787766871661
+      }
+    ],
+    "4.2 Escrever testes de integração para SecurityConfig": [
+      {
+        "executionId": "6ab106ad-45aa-4aec-9eca-3d3405432f53",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787766878194
+      },
+      {
+        "executionId": "6ab106ad-45aa-4aec-9eca-3d3405432f53",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787766884192
+      },
+      {
+        "executionId": "6ab106ad-45aa-4aec-9eca-3d3405432f53",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787767012525
+      }
+    ],
+    "4. Configurar Spring Security": [
+      {
+        "executionId": "6ab106ad-45aa-4aec-9eca-3d3405432f53",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787767012595
+      }
+    ]
+  }
+}

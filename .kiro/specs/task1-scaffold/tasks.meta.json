@@ -1,0 +1,244 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Criar `pom.xml` com Spring Boot 3 parent, Java 17 e todas as dependências": [
+      {
+        "executionId": "866a3c82-4364-4268-80e3-6cd59e37b7fb",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787751967644
+      },
+      {
+        "executionId": "866a3c82-4364-4268-80e3-6cd59e37b7fb",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787751977213
+      },
+      {
+        "executionId": "866a3c82-4364-4268-80e3-6cd59e37b7fb",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787752103562
+      }
+    ],
+    "1.2 Criar classe principal `BilhetagemApplication.java`": [
+      {
+        "executionId": "866a3c82-4364-4268-80e3-6cd59e37b7fb",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787751967754
+      },
+      {
+        "executionId": "866a3c82-4364-4268-80e3-6cd59e37b7fb",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787752110476
+      },
+      {
+        "executionId": "866a3c82-4364-4268-80e3-6cd59e37b7fb",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787752317685
+      }
+    ],
+    "1.3 Criar estrutura de pacotes com placeholders": [
+      {
+        "executionId": "866a3c82-4364-4268-80e3-6cd59e37b7fb",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787751967831
+      },
+      {
+        "executionId": "866a3c82-4364-4268-80e3-6cd59e37b7fb",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787752110423
+      },
+      {
+        "executionId": "866a3c82-4364-4268-80e3-6cd59e37b7fb",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787752317761
+      }
+    ],
+    "2.1 Criar `application.yml` com configuração default": [
+      {
+        "executionId": "866a3c82-4364-4268-80e3-6cd59e37b7fb",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787751967864
+      },
+      {
+        "executionId": "866a3c82-4364-4268-80e3-6cd59e37b7fb",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787752325252
+      },
+      {
+        "executionId": "866a3c82-4364-4268-80e3-6cd59e37b7fb",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787752406788
+      }
+    ],
+    "2.2 Criar `application-test.yml` com configuração de teste": [
+      {
+        "executionId": "866a3c82-4364-4268-80e3-6cd59e37b7fb",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787751967898
+      },
+      {
+        "executionId": "866a3c82-4364-4268-80e3-6cd59e37b7fb",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787752325322
+      },
+      {
+        "executionId": "866a3c82-4364-4268-80e3-6cd59e37b7fb",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787752406742
+      }
+    ],
+    "2.3 Criar `schema.sql` com DDL da tabela cobranca": [
+      {
+        "executionId": "866a3c82-4364-4268-80e3-6cd59e37b7fb",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787751967980
+      },
+      {
+        "executionId": "866a3c82-4364-4268-80e3-6cd59e37b7fb",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787752325200
+      },
+      {
+        "executionId": "866a3c82-4364-4268-80e3-6cd59e37b7fb",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787752406844
+      }
+    ],
+    "3.1 Criar `SecurityConfig.java` com permissões do actuator": [
+      {
+        "executionId": "866a3c82-4364-4268-80e3-6cd59e37b7fb",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787751968014
+      },
+      {
+        "executionId": "866a3c82-4364-4268-80e3-6cd59e37b7fb",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787752414123
+      },
+      {
+        "executionId": "866a3c82-4364-4268-80e3-6cd59e37b7fb",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787752537507
+      }
+    ],
+    "4.1 Criar `docker/docker-compose.yml` com todos os serviços": [
+      {
+        "executionId": "866a3c82-4364-4268-80e3-6cd59e37b7fb",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787751968044
+      },
+      {
+        "executionId": "866a3c82-4364-4268-80e3-6cd59e37b7fb",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787752414174
+      },
+      {
+        "executionId": "866a3c82-4364-4268-80e3-6cd59e37b7fb",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787752537558
+      }
+    ],
+    "4.2 Criar `docker/Dockerfile` com build multi-stage": [
+      {
+        "executionId": "866a3c82-4364-4268-80e3-6cd59e37b7fb",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787751968073
+      },
+      {
+        "executionId": "866a3c82-4364-4268-80e3-6cd59e37b7fb",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787752414213
+      },
+      {
+        "executionId": "866a3c82-4364-4268-80e3-6cd59e37b7fb",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787752537609
+      }
+    ],
+    "5. Checkpoint - Verificar compilação e estrutura": [
+      {
+        "executionId": "866a3c82-4364-4268-80e3-6cd59e37b7fb",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787751968103
+      },
+      {
+        "executionId": "866a3c82-4364-4268-80e3-6cd59e37b7fb",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787752694486
+      },
+      {
+        "executionId": "866a3c82-4364-4268-80e3-6cd59e37b7fb",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787752973903
+      }
+    ],
+    "6.1 Criar teste de carga do contexto Spring com profile test": [
+      {
+        "executionId": "866a3c82-4364-4268-80e3-6cd59e37b7fb",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787751968131
+      },
+      {
+        "executionId": "866a3c82-4364-4268-80e3-6cd59e37b7fb",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787752547841
+      },
+      {
+        "executionId": "866a3c82-4364-4268-80e3-6cd59e37b7fb",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787752682219
+      }
+    ],
+    "7. Final checkpoint - Validar projeto completo": [
+      {
+        "executionId": "866a3c82-4364-4268-80e3-6cd59e37b7fb",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787751968172
+      },
+      {
+        "executionId": "866a3c82-4364-4268-80e3-6cd59e37b7fb",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787752979556
+      },
+      {
+        "executionId": "866a3c82-4364-4268-80e3-6cd59e37b7fb",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787756961895
+      }
+    ],
+    "3. Configurar segurança básica": [
+      {
+        "executionId": "866a3c82-4364-4268-80e3-6cd59e37b7fb",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787752537680
+      }
+    ],
+    "6. Teste de integração do contexto Spring": [
+      {
+        "executionId": "866a3c82-4364-4268-80e3-6cd59e37b7fb",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787752682293
+      }
+    ],
+    "1. Criar projeto Maven com dependências": [
+      {
+        "executionId": "866a3c82-4364-4268-80e3-6cd59e37b7fb",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787756982895
+      }
+    ],
+    "2. Configurar profiles da aplicação": [
+      {
+        "executionId": "866a3c82-4364-4268-80e3-6cd59e37b7fb",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787756982940
+      }
+    ],
+    "4. Criar infraestrutura Docker": [
+      {
+        "executionId": "866a3c82-4364-4268-80e3-6cd59e37b7fb",
+        "chatSessionId": "sess_ca9ea4cf-e349-4b55-9247-b22cab71410c",
+        "timestamp": 1787756983022
+      }
+    ]
+  }
+}
