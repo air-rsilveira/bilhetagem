@@ -2,6 +2,10 @@
 
 Microserviço responsável pela criação, acompanhamento e gestão do ciclo de vida de cobranças (cobranças) de um sistema de bilhetagem. Suporta cobranças via **PIX** e **cartão de crédito**, com trilha de auditoria completa por versionamento, lock distribuído por usuário e publicação de eventos a cada transição de status.
 
+## Como testar
+
+Um guia passo a passo para subir a aplicação e validar o ciclo de vida de uma cobrança pelo Postman está em [COMO_TESTAR.md](COMO_TESTAR.md). O documento cobre como subir a infraestrutura via Docker Compose, rodar a aplicação com o Maven Wrapper e executar um fluxo sequencial de chamadas (criar → consultar → mudar de estado → consultar novamente).
+
 ## Tecnologias
 
 - **Java 17**
