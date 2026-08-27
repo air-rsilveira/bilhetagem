@@ -1,65 +1,15 @@
 {
   "info": {
     "name": "Bilhetagem - Microserviço de Cobranças",
-    "description": "Collection com chamadas de exemplo para todos os endpoints do microserviço de cobranças de bilhetagem.\n\nO JWT Bearer é gerado automaticamente por um pre-request script no nível da collection (HMAC-SHA256 com a chave de teste fixa do projeto), então não é preciso colar tokens manualmente. As claims do token vêm das variáveis da collection (idUsuario, givenName, familyName, cpf).\n\nEndpoints protegidos usam a variável {{jwt}}. Os cenários de erro (sem token / token inválido) sobrescrevem o header propositalmente.",
+    "description": "Collection com chamadas de exemplo para todos os endpoints do microserviço de cobranças de bilhetagem.\n\nAUTENTICAÇÃO: os endpoints protegidos usam a variável {{jwt}}. A collection já vem com um token JWT de TESTE pré-gerado (válido até 2035-01-01), assinado com a chave HMAC-SHA256 fixa do projeto e com as claims sub=user-123, given_name=Maria, family_name=Silva, cpf=12345678900. Como o JWT é mockado (chave fixa hardcoded, sem endpoint de login), esse token é fixo e pode ser reutilizado à vontade em ambiente de teste.\n\nPara usar outras claims, gere um novo token assinado com a mesma chave (ex.: jwt.io ou o JwtTokenUtil de teste do projeto) e substitua a variável `jwt`.\n\nATENÇÃO: este token serve apenas para desenvolvimento/teste. NÃO use em produção.\n\nO endpoint de webhook PIX é público e não precisa de token.",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "variable": [
     { "key": "baseUrl", "value": "http://localhost:8080", "type": "string" },
-    { "key": "jwtSecret", "value": "bilhetagem-secret-key-for-testing-purposes-only-32bytes!", "type": "string" },
-    { "key": "idUsuario", "value": "user-123", "type": "string" },
-    { "key": "givenName", "value": "Maria", "type": "string" },
-    { "key": "familyName", "value": "Silva", "type": "string" },
-    { "key": "cpf", "value": "12345678900", "type": "string" },
-    { "key": "jwt", "value": "", "type": "string" },
+    { "key": "jwt", "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyLTEyMyIsImdpdmVuX25hbWUiOiJNYXJpYSIsImZhbWlseV9uYW1lIjoiU2lsdmEiLCJjcGYiOiIxMjM0NTY3ODkwMCIsImV4cCI6MjA1MTIyMjQwMH0.hSXEJwhSGYKmBcwFzCXw-1khqFw2MxlLSE5VAe-9Jp0", "type": "string" },
     { "key": "cobrancaId", "value": "1", "type": "string" },
     { "key": "transactionId", "value": "TXN-123", "type": "string" },
     { "key": "txid", "value": "PIX-EXEMPLO-123", "type": "string" }
-  ],
-  "event": [
-    {
-      "listen": "prerequisite",
-      "script": {
-        "type": "text/javascript",
-        "exec": [
-          "// Gera um JWT HMAC-SHA256 valido usando a mesma chave/claims que o JwtAuthenticationFilter espera.",
-          "// Base64 URL-safe sem padding, assinatura sobre header.payload — igual ao filtro do projeto.",
-          "function base64url(input) {",
-          "    return input",
-          "        .replace(/\\+/g, '-')",
-          "        .replace(/\\//g, '_')",
-          "        .replace(/=+$/, '');",
-          "}",
-          "",
-          "function base64urlFromWordArray(wordArray) {",
-          "    return base64url(CryptoJS.enc.Base64.stringify(wordArray));",
-          "}",
-          "",
-          "var header = { alg: 'HS256', typ: 'JWT' };",
-          "",
-          "// exp: agora + 1 hora (em segundos)",
-          "var exp = Math.floor(Date.now() / 1000) + 3600;",
-          "",
-          "var payload = {",
-          "    sub: pm.collectionVariables.get('idUsuario'),",
-          "    given_name: pm.collectionVariables.get('givenName'),",
-          "    family_name: pm.collectionVariables.get('familyName'),",
-          "    cpf: pm.collectionVariables.get('cpf'),",
-          "    exp: exp",
-          "};",
-          "",
-          "var encodedHeader = base64url(CryptoJS.enc.Utf8.parse(JSON.stringify(header)).toString(CryptoJS.enc.Base64));",
-          "var encodedPayload = base64url(CryptoJS.enc.Utf8.parse(JSON.stringify(payload)).toString(CryptoJS.enc.Base64));",
-          "var signingInput = encodedHeader + '.' + encodedPayload;",
-          "",
-          "var secret = pm.collectionVariables.get('jwtSecret');",
-          "var signature = base64urlFromWordArray(CryptoJS.HmacSHA256(signingInput, secret));",
-          "",
-          "var token = signingInput + '.' + signature;",
-          "pm.collectionVariables.set('jwt', token);"
-        ]
-      }
-    }
   ],
   "item": [
     {
@@ -79,7 +29,7 @@
           "host": ["{{baseUrl}}"],
           "path": ["api", "v1", "cobrancas"]
         },
-        "description": "Cria uma cobrança PIX. `valor` é obrigatório e positivo. `tipo` (default RECARGA) e `metodo` (default PIX) são opcionais.\n\nResposta 201 Created com dados básicos (id, txid, copiaECola, dataExpiracao, transactionId).\n\nO teste salva o `id` e o `txid` retornados nas variáveis da collection para reuso nas outras chamadas."
+        "description": "Cria uma cobrança PIX. `valor` é obrigatório e positivo. `tipo` (default RECARGA) e `metodo` (default PIX) são opcionais.\n\nResposta 201 Created com dados básicos (id, txid, copiaECola, dataExpiracao, transactionId).\n\nO teste salva o `id` e o `txid` retornados nas variáveis da collection para reuso nas outras chamadas.\n\nRequer token JWT válido na variável {{jwt}}."
       },
       "event": [
         {
@@ -114,7 +64,7 @@
           "host": ["{{baseUrl}}"],
           "path": ["api", "v1", "cobrancas"]
         },
-        "description": "Cria uma cobrança via cartão de crédito. Salva o `transactionId` retornado para uso no endpoint de validação de checkout 3DS."
+        "description": "Cria uma cobrança via cartão de crédito. Salva o `transactionId` retornado para uso no endpoint de validação de checkout 3DS.\n\nRequer token JWT válido na variável {{jwt}}."
       },
       "event": [
         {
@@ -143,7 +93,7 @@
           "host": ["{{baseUrl}}"],
           "path": ["api", "v1", "cobrancas", "{{cobrancaId}}"]
         },
-        "description": "Consulta os dados completos de uma cobrança. Para cobranças PIX em status consultável, o status é reconciliado automaticamente com a consulta externa (gerando uma nova versão quando há mudança).\n\nUsa o `{{cobrancaId}}` salvo pela chamada de criação."
+        "description": "Consulta os dados completos de uma cobrança. Para cobranças PIX em status consultável, o status é reconciliado automaticamente com a consulta externa (gerando uma nova versão quando há mudança).\n\nUsa o `{{cobrancaId}}` salvo pela chamada de criação. Requer token JWT válido na variável {{jwt}}."
       },
       "event": [
         {
@@ -204,7 +154,7 @@
           "host": ["{{baseUrl}}"],
           "path": ["api", "v1", "cobrancas", "{{transactionId}}", "validate"]
         },
-        "description": "Valida o checkout 3DS de uma cobrança de cartão. `cavv`, `xid` e `eci` são obrigatórios (não podem ser vazios). A cobrança vai para FINALIZADA (aprovado) ou ERRO_APROVACAO_PEDIDO.\n\nUsa o `{{transactionId}}` salvo pela criação de cobrança de cartão."
+        "description": "Valida o checkout 3DS de uma cobrança de cartão. `cavv`, `xid` e `eci` são obrigatórios (não podem ser vazios). A cobrança vai para FINALIZADA (aprovado) ou ERRO_APROVACAO_PEDIDO.\n\nUsa o `{{transactionId}}` salvo pela criação de cobrança de cartão. Requer token JWT válido na variável {{jwt}}."
       },
       "event": [
         {
@@ -239,7 +189,7 @@
               "host": ["{{baseUrl}}"],
               "path": ["api", "v1", "cobrancas"]
             },
-            "description": "`valor` negativo viola @Positive e deve retornar 400 Bad Request."
+            "description": "`valor` negativo viola @Positive e deve retornar 400 Bad Request. Requer token JWT válido na variável {{jwt}}."
           },
           "event": [
             {
@@ -257,9 +207,7 @@
           "name": "Consultar cobrança - sem token (401)",
           "request": {
             "method": "GET",
-            "header": [
-              { "key": "Authorization", "value": "", "disabled": true }
-            ],
+            "header": [],
             "url": {
               "raw": "{{baseUrl}}/api/v1/cobrancas/{{cobrancaId}}",
               "host": ["{{baseUrl}}"],
@@ -268,16 +216,6 @@
             "description": "Endpoint protegido sem header Authorization deve retornar 401."
           },
           "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "// Remove o header Authorization herdado para simular ausência de token.",
-                  "pm.request.headers.remove('Authorization');"
-                ]
-              }
-            },
             {
               "listen": "test",
               "script": {

@@ -54,11 +54,29 @@ O profile de teste usa **H2 em memória** e exclui Redis/Kafka, portanto os test
 docker-compose -f docker/docker-compose.yml up --build
 ```
 
+## Autenticação (JWT mockado)
+
+Todos os endpoints (exceto o webhook PIX e o Actuator) exigem um token **JWT Bearer** válido.
+
+O JWT é **mockado**: a aplicação **não** possui endpoint de login/emissão de token — ela apenas **valida** o token recebido, usando uma **chave HMAC-SHA256 fixa hardcoded** (`bilhetagem-secret-key-for-testing-purposes-only-32bytes!`). A validação checa a assinatura e o `exp` (expiração). As claims lidas são: `sub`, `given_name`, `family_name`, `cpf`, `exp`.
+
+Como a chave é fixa, **um token com `exp` longo é fixo e reutilizável** — você pode gerá-lo uma vez e usar sempre nos testes. Para gerar um token, assine um JWT HS256 com a chave acima (ex.: [jwt.io](https://jwt.io) ou o utilitário `JwtTokenUtil` dos testes do projeto).
+
+Token de **teste** pronto para uso (claims `sub=user-123`, `Maria Silva`, `cpf=12345678900`, válido até 2035-01-01):
+
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyLTEyMyIsImdpdmVuX25hbWUiOiJNYXJpYSIsImZhbWlseV9uYW1lIjoiU2lsdmEiLCJjcGYiOiIxMjM0NTY3ODkwMCIsImV4cCI6MjA1MTIyMjQwMH0.hSXEJwhSGYKmBcwFzCXw-1khqFw2MxlLSE5VAe-9Jp0
+```
+
+> Este token serve apenas para desenvolvimento/teste. **Não use em produção.**
+
+### Collection do Postman
+
+Há uma collection pronta em `postman/bilhetagem.postman_collection.json` com chamadas de exemplo para todos os endpoints. Ela já vem com o token de teste acima na variável de collection `jwt`, então basta importar e executar. Para usar outras claims, substitua o valor da variável `jwt` por um token gerado com a mesma chave.
+
 ## Endpoints
 
 Base path: `/api/v1/cobrancas`
-
-Todos os endpoints (exceto o webhook e o Actuator) exigem um token **JWT Bearer** válido.
 
 ### POST `/api/v1/cobrancas` — Criar cobrança
 
