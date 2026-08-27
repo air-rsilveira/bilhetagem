@@ -38,7 +38,7 @@ public class Cobranca {
 
     private String txid;
 
-    @Column(columnDefinition = "TEXT")
+    @Column(name = "copia_e_cola", columnDefinition = "TEXT")
     private String copiaECola;
 
     private String transactionId;
